@@ -1,4 +1,4 @@
-package com.kaminocode.springcoredemo;
+package com.kaminocode.springcoredemo.common;
 
 import org.springframework.stereotype.Component;
 
