@@ -3,10 +3,6 @@ package com.kaminocode.springcoredemo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//@SpringBootApplication(
-//		scanBasePackages = {"com.kaminocode.springcoredemo",
-//							"com.kaminocode.util"}
-//)
 @SpringBootApplication
 public class SpringcoredemoApplication {
 
