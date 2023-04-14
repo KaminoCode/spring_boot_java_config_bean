@@ -2,6 +2,7 @@ package com.kaminocode.springcoredemo.rest;
 
 import com.kaminocode.springcoredemo.common.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,15 +11,29 @@ public class DemoController {
 
     // define a private field for the dependency
     private Coach myCoach;
+    private Coach anotherCoach;
 
     // define a setter injection
     @Autowired
-    public DemoController(Coach theCoach) {
+    public DemoController(
+            @Qualifier("cricketCoach") Coach theCoach,
+            @Qualifier("cricketCoach") Coach theAnotherCoach) {
         myCoach = theCoach;
+        anotherCoach = theAnotherCoach;
     }
 
     @GetMapping("/dailyworkout")
     public String getDailyWorkout() {
         return myCoach.getDailyWorkout();
+    }
+
+    @GetMapping("/check")
+    public String check() {
+        return "Comparing beans: myCoach == anotherCoach, " + (myCoach == anotherCoach);
+    }
+
+    @GetMapping("/display")
+    public String display() {
+        return "Here is myCoach: " + myCoach + " , and here is anotherCoach: " + anotherCoach;
     }
 }
