@@ -14,7 +14,7 @@ public class DemoController {
 
     // define a setter injection
     @Autowired
-    public DemoController(@Qualifier("cricketCoach") Coach theCoach) {
+    public DemoController(@Qualifier("swimCoach") Coach theCoach) {
         myCoach = theCoach;
     }
 
